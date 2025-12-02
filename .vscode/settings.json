@@ -1,0 +1,13 @@
+{
+  // 抑制 CSS 语言服务对 Tailwind 指令的误报
+  "css.lint.unknownAtRules": "ignore",
+
+  // 可帮助 Tailwind CSS 扩展识别配置（若已安装）
+  "tailwindCSS.experimental.configFile": "tailwind.config.js",
+
+  // 自定义拼写字典，消除 cSpell 误报
+  "cSpell.words": [
+    "zhipu",
+    "NeurIPS"
+  ]
+}
