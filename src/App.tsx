@@ -288,7 +288,7 @@ const Header = () => {
 // 主应用组件 - 路由容器
 const App = () => {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
       <div className="min-h-screen flex flex-col bg-white">
         <Header />
         
