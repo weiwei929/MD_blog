@@ -1,5 +1,5 @@
 import { memo, useState } from 'react';
-import { Image as ImageIcon } from 'lucide-react';
+import { Image as ImageIcon, Trash2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import type { Article } from '../types';
 import { categories } from '../data';
@@ -7,11 +7,17 @@ import { categories } from '../data';
 type Props = {
   article: Article;
   onClick: () => void;
+  onDelete: (article: Article) => void;
 };
 
-const AchievementCard = memo(({ article, onClick }: Props) => {
+const AchievementCard = memo(({ article, onClick, onDelete }: Props) => {
   const category = categories.find(cat => cat.id === article.category);
   const [imageError, setImageError] = useState(false);
+
+  const handleDeleteClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onDelete(article);
+  };
 
   return (
     <motion.div
@@ -20,10 +26,10 @@ const AchievementCard = memo(({ article, onClick }: Props) => {
       className="h-full"
       onClick={onClick}
     >
-      <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg h-full flex flex-col cursor-pointer">
+      <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg h-full flex flex-col cursor-pointer group">
         <div className="relative">
           <div className="h-48 overflow-hidden bg-gray-100 relative">
-            {!imageError ? (
+            {!imageError && article.coverImage ? (
               <img
                 src={article.coverImage}
                 alt={article.title}
@@ -32,9 +38,13 @@ const AchievementCard = memo(({ article, onClick }: Props) => {
                 onError={() => setImageError(true)}
               />
             ) : (
-              <div className="w-full h-full flex flex-col items-center justify-center text-gray-400 bg-gray-50">
-                <ImageIcon size={32} className="mb-2 opacity-50" />
-                <span className="text-xs font-medium">暂无封面</span>
+              <div className={`w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-gray-100 to-gray-200`}>
+                <div className="w-12 h-12 rounded-full bg-white/50 flex items-center justify-center mb-3 backdrop-blur-sm">
+                  <ImageIcon size={24} className="text-gray-400" />
+                </div>
+                <span className="text-sm font-medium text-gray-500 line-clamp-2 px-4">
+                  {article.title}
+                </span>
               </div>
             )}
           </div>
@@ -49,7 +59,7 @@ const AchievementCard = memo(({ article, onClick }: Props) => {
         </div>
 
         <div className="p-5 flex-grow flex flex-col">
-          <h3 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2">{article.title}</h3>
+          <h3 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2 group-hover:text-blue-600 transition-colors">{article.title}</h3>
           <p className="text-gray-600 mb-4 flex-grow line-clamp-3">{article.description}</p>
 
           <div className="flex flex-wrap gap-1 mt-auto mb-3">
@@ -60,14 +70,23 @@ const AchievementCard = memo(({ article, onClick }: Props) => {
             ))}
           </div>
 
-          <div className="flex justify-between items-center text-sm">
+          <div className="flex justify-between items-center text-sm pt-4 border-t border-gray-100">
             <div className="flex items-center gap-3 text-gray-500">
               <span>{article.date}</span>
-              {article.readTime && <span>{article.readTime}</span>}
             </div>
-            <button className="text-gray-900 font-medium hover:text-gray-700">
-              阅读全文 →
-            </button>
+            
+            <div className="flex items-center gap-3">
+              <button 
+                onClick={handleDeleteClick}
+                className="text-gray-400 hover:text-red-500 transition-colors p-1 rounded-md hover:bg-red-50"
+                title="删除文章"
+              >
+                <Trash2 size={18} />
+              </button>
+              <button className="text-gray-900 font-medium hover:text-blue-600 flex items-center gap-1 transition-colors">
+                阅读全文 →
+              </button>
+            </div>
           </div>
         </div>
       </div>

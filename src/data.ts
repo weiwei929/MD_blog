@@ -13,7 +13,7 @@ export const articles: Article[] = [
     description: '深入探讨 React 18 的并发特性、自动批处理和 Suspense 改进',
     date: '2023-10-15',
     category: 'tech',
-    coverImage: 'https://via.placeholder.com/600x400',
+    coverImage: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
     tags: ['React', '前端', 'JavaScript'],
     featured: true,
     author: '张三',
@@ -45,7 +45,7 @@ function App() {
 
 React 18 会自动批处理所有状态更新，无论它们来自哪里。
 
-![React 18 架构图](https://via.placeholder.com/800x400)
+![React 18 架构图](https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3)
 
 > 这是一个革命性的更新，大幅提升了性能。
 
@@ -59,7 +59,7 @@ React 18 为现代 Web 应用开发带来了更强大的工具。`,
     description: 'Vite 作为新一代构建工具，提供了极速的开发体验',
     date: '2023-09-20',
     category: 'tutorial',
-    coverImage: 'https://via.placeholder.com/600x400',
+    coverImage: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
     tags: ['Vite', '构建工具', '工程化'],
     featured: true,
     author: '李四',
@@ -104,7 +104,7 @@ export default defineConfig({
     description: '分享我从编程小白到全栈工程师的成长历程',
     date: '2023-11-05',
     category: 'life',
-    coverImage: 'https://via.placeholder.com/600x400',
+    coverImage: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
     tags: ['个人成长', '经验分享', '全栈'],
     featured: false,
     author: '王五',
@@ -128,7 +128,7 @@ export default defineConfig({
     description: '掌握这些高级类型技巧，让你的 TypeScript 代码更优雅',
     date: '2023-08-30',
     category: 'tech',
-    coverImage: 'https://via.placeholder.com/600x400',
+    coverImage: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
     tags: ['TypeScript', '类型系统', '进阶'],
     featured: false,
     author: '赵六',

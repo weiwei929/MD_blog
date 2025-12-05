@@ -6,6 +6,7 @@ import ArticleDetail from './components/ArticleDetail';
 import { motion } from 'framer-motion';
 import { BookOpen, Zap, FileText, Palette, Menu, X, ArrowRight, Github, Twitter, Mail } from 'lucide-react';
 import ContactModal from './components/ContactModal';
+import PreviewPage from './components/PreviewPage';
 
 // 英雄区域组件
 const HeroSection = () => {
@@ -314,6 +315,12 @@ const App = () => {
             <Route path="/article/:slug" element={
               <>
                 <ArticleDetail />
+                <Footer simple />
+              </>
+            } />
+            <Route path="/preview" element={
+              <>
+                <PreviewPage />
                 <Footer simple />
               </>
             } />
