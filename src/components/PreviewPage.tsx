@@ -92,7 +92,6 @@ const PreviewPage = () => {
       }
       console.log('Step 2: Suggested filename:', suggestedName);
 
-      // @ts-ignore - File System Access API types might not be available
       if (!window.showSaveFilePicker) {
         setError('您的浏览器不支持直接保存文件 (File System Access API)');
         setIsPublishing(false);
@@ -100,7 +99,6 @@ const PreviewPage = () => {
       }
 
       console.log('Step 3: Opening save file picker...');
-      // @ts-ignore - File System Access API
       const handle = await window.showSaveFilePicker({
         suggestedName: suggestedName,
         types: [{

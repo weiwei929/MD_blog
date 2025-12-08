@@ -7,6 +7,7 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
 import { motion } from 'framer-motion';
 import { articles, categories } from '../data';
+import { siteConfig } from '../siteConfig';
 import 'highlight.js/styles/github-dark.css';
 
 const ArticleDetail = () => {
@@ -18,7 +19,13 @@ const ArticleDetail = () => {
   
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [slug]);
+    if (article) {
+      document.title = `${article.title} - ${siteConfig.siteName}`;
+    }
+    return () => {
+      document.title = siteConfig.siteName;
+    };
+  }, [slug, article]);
 
   if (!article) {
     return (
@@ -47,7 +54,7 @@ const ArticleDetail = () => {
       <div className="max-w-4xl mx-auto px-4">
         {/* 返回按钮 */}
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/articles')}
           className="mb-6 text-gray-600 hover:text-gray-900 flex items-center gap-2"
         >
           ← 返回文章列表

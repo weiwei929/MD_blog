@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { siteConfig } from '../siteConfig';
 import type { CategoryId, Article } from '../types';
 import { articles } from '../data';
 import AchievementCard from './AchievementCard';
@@ -31,6 +32,9 @@ const HomePage = () => {
 
   useEffect(() => {
     let result = articles;
+    
+    // Set default title
+    document.title = siteConfig.siteName;
     
     if (selectedCategory !== 'all') {
       result = result.filter(article => article.category === selectedCategory);
@@ -76,7 +80,7 @@ const HomePage = () => {
     }
 
     try {
-      // @ts-ignore - File System Access API
+      // File System Access API
       const dirHandle = await window.showDirectoryPicker({
         mode: 'readwrite',
         startIn: 'documents',
@@ -213,13 +217,14 @@ const HomePage = () => {
                   </div>
                 </div>
 
-                <p className="text-amber-600 text-xs text-left w-full mb-4 leading-relaxed">
-                  <strong>提示：</strong> 点击确认后，浏览器会请求访问 <code className="bg-amber-50 px-1 rounded">src/posts</code> 目录的权限，请点击 <strong>"查看文件"</strong> 或 <strong>"Save changes"</strong> 以允许删除。
-                </p>
-
-                <p className="text-red-500 text-xs font-medium bg-red-50 px-3 py-1 rounded-full">
-                  ⚠️ 此操作将永久删除文件，无法恢复！
-                </p>
+                <div className="text-left bg-amber-50 rounded-lg p-3 text-sm text-amber-800 mb-6 space-y-2">
+                  <p className="font-bold">⚠️ 注意事项：</p>
+                  <ul className="list-disc pl-4 space-y-1">
+                    <li>此操作将尝试通过浏览器 API 删除本地文件。</li>
+                    <li>由于缓存或权限原因，<strong>刷新页面后文章可能会重新出现</strong>。</li>
+                    <li><strong>彻底删除方法：</strong>如本功能无效，请直接在项目目录 <code className="bg-amber-100 px-1 rounded">src/posts</code> 中手动删除对应的 <code className="bg-amber-100 px-1 rounded">.md</code> 文件。</li>
+                  </ul>
+                </div>
               </div>
               <div className="flex gap-3">
                 <button

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { siteConfig } from './siteConfig';
 import { articles, categories } from './data';
 import HomePage from './components/HomePage';
 import ArticleDetail from './components/ArticleDetail';
@@ -109,8 +110,8 @@ const Footer = ({ simple = false }: { simple?: boolean }) => {
                 <BookOpen size={20} />
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-lg leading-tight text-gray-900">Pennfly 创新实验室</span>
-                <span className="text-xs font-normal text-gray-500">Flying X studio</span>
+                <span className="font-bold text-lg leading-tight text-gray-900">{siteConfig.siteName}</span>
+                <span className="text-xs font-normal text-gray-500">{siteConfig.siteDescription}</span>
               </div>
             </div>
             <p className="text-gray-500 mb-6 leading-relaxed">
@@ -158,16 +159,16 @@ const Footer = ({ simple = false }: { simple?: boolean }) => {
           <div>
             <h3 className="text-gray-900 font-semibold mb-4">联系我们</h3>
             <ul className="space-y-3 text-gray-500">
-              <li>contact@pennfly.com</li>
-              <li>400-123-4567</li>
-              <li>北京市海淀区中关村</li>
+              <li>{siteConfig.contact.email}</li>
+              {siteConfig.contact.phone && <li>{siteConfig.contact.phone}</li>}
+              {siteConfig.contact.address && <li>{siteConfig.contact.address}</li>}
             </ul>
           </div>
           </div>
         )}
         
         <div className={`${simple ? '' : 'border-t border-gray-100 mt-12 pt-8'} flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm`}>
-          <p>© 2025 Flying X studio. All rights reserved.</p>
+          <p>© 2025 {siteConfig.author}. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-gray-600">隐私政策</a>
             <a href="#" className="hover:text-gray-600">服务条款</a>
@@ -200,8 +201,8 @@ const Header = () => {
                   <BookOpen size={20} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-lg leading-tight text-gray-900">Pennfly 创新实验室</span>
-                  <span className="text-xs font-normal text-gray-500 font-normal">Flying X studio</span>
+                  <span className="font-bold text-lg leading-tight text-gray-900">{siteConfig.siteName}</span>
+                  <span className="text-xs font-normal text-gray-500 font-normal">{siteConfig.siteDescription}</span>
                 </div>
               </Link>
             </div>
