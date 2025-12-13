@@ -31,7 +31,7 @@ const AchievementCard = memo(({ article, onClick, onDelete }: Props) => {
           <div className="h-48 overflow-hidden bg-gray-100 relative">
             {!imageError && article.coverImage ? (
               <img
-                src={article.coverImage}
+                src={article.coverImage.startsWith('/') ? import.meta.env.BASE_URL + article.coverImage.slice(1) : article.coverImage}
                 alt={article.title}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"

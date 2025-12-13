@@ -90,7 +90,7 @@ const ArticleDetail = () => {
             <div className="rounded-xl overflow-hidden mb-8 bg-gray-100 relative">
               {!imageError ? (
                 <img
-                  src={article.coverImage}
+                  src={article.coverImage.startsWith('/') ? import.meta.env.BASE_URL + article.coverImage.slice(1) : article.coverImage}
                   alt={article.title}
                   className="w-full h-auto"
                   loading="eager"
