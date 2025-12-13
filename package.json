@@ -1,8 +1,9 @@
 {
-  "name": "zhipu-achievements",
+  "name": "md-blog",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://weiwei929.github.io/MD_blog",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

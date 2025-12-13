@@ -5,7 +5,7 @@ export const siteConfig = {
   social: {
     email: 'pennfly2008@gmail.com',
     x: 'https://x.com/pennfly',
-    github: 'https://github.com/pennfly',
+    github: 'https://github.com/weiwei929',
     discord: 'https://discord.gg/pennfly', // Placeholder based on handle
     facebook: 'https://facebook.com/pennfly', // Placeholder based on handle
     telegram: 'https://t.me/pennfly', // Placeholder based on handle
