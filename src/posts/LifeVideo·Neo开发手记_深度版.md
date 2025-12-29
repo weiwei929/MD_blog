@@ -1,3 +1,4 @@
+coverImage: /images/lifevideo-neo-deep.png
 ---
 title: LifeVideo·Neo 开发手记 (深度版)
 date: 2025-12-08

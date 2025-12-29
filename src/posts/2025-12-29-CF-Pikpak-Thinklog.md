@@ -3,6 +3,7 @@ title: "从 WebDAV 到原生 API：突破 Cloudflare Worker 极限，打造极�
 date: 2025-12-29
 categories: ["技术复盘", "Cloudflare", "Serverless"]
 tags: ["PikPak", "API逆向", "性能优化", "ThinkLog", "AI协同"]
+coverImage: /images/cf-pikpak-thinklog.png
 ---
 
 # 💡 引言：不满足于“能用”

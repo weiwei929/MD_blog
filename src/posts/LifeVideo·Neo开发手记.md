@@ -3,9 +3,8 @@ title: LifeVideo·Neo 全景开发手记 (v2.0)
 date: 2025-12-08
 category: Project
 tags: ['LifeVideoNeo', 'Architecture', '复盘']
+coverImage: /images/lifevideo-neo.png
 description: 从零构建“数字记忆”的系统工程全景复盘，涵盖架构设计、技术选型与项目管理心法。
-featured: true
-author: Pennfly
 ---
 
 # LifeVideo·Neo 全景开发手记：从零构建“数字记忆”的系统工程

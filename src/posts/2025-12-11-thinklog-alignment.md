@@ -4,6 +4,8 @@ date: 2025-12-11
 category: tech
 tags: [ThinkLog, React, Kanban, Mermaid, Engineering Culture]
 description: "记录一次看板系统开发中的思维博弈：如何通过对齐思路、校准颗粒度和引入 Mermaid 可视化，解决业务逻辑断点并提升代码质量。"
+coverImage: /images/kanban-thinklog.png
+featured: true
 author: WeiWei
 ---
 

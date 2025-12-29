@@ -3,7 +3,7 @@ title: "8MB Video Compressor 迁移与优化战报"
 date: 2025-12-12
 category: tech
 tags: [DevLog, Python, FFmpeg, UI/UX, Problem Solving]
-description: "记录 8MB Video Compressor 从路径依赖到智能压缩的完整演进，解决 FFmpeg 路径、HEVC 兼容性及 UI 交互等7个核心问题。"
+coverImage: /images/compressor-optimization.png
 author: WeiWei
 ---
 

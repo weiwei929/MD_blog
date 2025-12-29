@@ -1,3 +1,4 @@
+coverImage: /images/lifevideo-neo-lite.png
 ---
 title: LifeVideo·Neo 开发手记 (精简版)
 date: 2025-12-08
