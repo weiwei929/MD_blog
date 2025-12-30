@@ -5,6 +5,7 @@ category: tech
 tags: [架构, Docker, DevOps, Node.js]
 description: 记录一个开发者不断挑战舒适区，从静态托管向现代化微服务架构转型的思考过程
 featured: true
+coverImage: /images/vps-evolution.png
 author: Pennfly
 ---
 

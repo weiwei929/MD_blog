@@ -7,6 +7,7 @@ category: tech
 tags: [React, TypeScript, Refactoring, Optimization]
 featured: true
 author: Pennfly
+coverImage: /images/blog-optimization.png
 readTime: 10 分钟
 ---
 
