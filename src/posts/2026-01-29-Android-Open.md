@@ -3,6 +3,7 @@ title: "打开 Android 的暗黑大门：从 SOG09 到 Pixel 6 的夺权之路"
 date: 2026-01-29
 categories: ["Digital Life", "Android", "DevOps"]
 tags: ["Sony", "Pixel", "ADB", "Shizuku", "Termux", "ThinkLog"]
+coverImage: /images/android-dark-door.png
 ---
 
 # 打开 Android 的暗黑大门：从 SOG09 到 Pixel 6 的夺权之路

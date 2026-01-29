@@ -1,5 +1,5 @@
 ---
-title: "Clawdbot 在 VPS 上的部署日志（一次很成功的突破）"
+title: "Clawdbot VPS 部署实录：一次零到一的完美突围"
 date: 2026-01-26
 description: "Clawdbot 在 VPS 上的成功部署日志，集成了 GLM 和 Telegram。"
 tags: [Clawdbot, VPS, Telegram, Success]

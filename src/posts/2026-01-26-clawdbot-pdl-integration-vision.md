@@ -1,5 +1,5 @@
 ---
-title: "PDL x Clawdbot: The 'Digital Lifecycle' Fusion Strategy"
+title: "PDL x Clawdbot：个人数字生命周期的深度融合战略"
 date: 2026-01-26
 description: "将 Clawdbot 深度集成至个人数字生活 (PDL) 架构的战略构想。"
 tags: [PDL, Clawdbot, AI Agent, Vision]

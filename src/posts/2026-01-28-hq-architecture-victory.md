@@ -3,7 +3,7 @@ title: "司令部架构重构战役总结：从文件夹到数字生命"
 date: 2026-01-28
 description: "2026 开发大本营架构升级全记录。我们建立了一个以 HQ 为核心，Skill 为能力，Reinforcements 为外挂的全新指挥体系。"
 tags: [Architecture, DevLog, Agent, Productivity]
-coverImage: /images/ai-collaboration-team.png
+coverImage: /images/hq-architecture-victory.png
 ---
 
 # 司令部架构重构战役总结：从文件夹到数字生命

@@ -1,5 +1,5 @@
 ---
-title: "复盘：'NPM vs Docker' 的战略性失败"
+title: "深度复盘：NPM vs Docker 在低配 VPS 上的战略性败局"
 date: 2026-01-26
 description: "关于 Clawdbot 部署选择 npm 而非 Docker 的战略性失误复盘。"
 tags: [Retrospective, Docker, npm, Failure]
