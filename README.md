@@ -146,6 +146,10 @@ npm run sync:weekly
 
 构建时会自动执行同步。若源目录不存在（如 CI 环境），将跳过同步，已提交的周报仍会正常展示。
 
+### 📦 个人项目库（规划中）
+
+技术方案文档见 [docs/PROJECT_LIBRARY_PLAN.md](docs/PROJECT_LIBRARY_PLAN.md)，择机实施。
+
 ## 🛠️ 技术栈 (Tech Stack)
 
 - **Framework**: [React](https://reactjs.org/)

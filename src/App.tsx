@@ -178,7 +178,7 @@ const Header = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="font-bold text-lg leading-tight text-gray-900">{siteConfig.siteName}</span>
-                  <span className="text-xs font-normal text-gray-500 font-normal">{siteConfig.siteDescription}</span>
+                  <span className="text-xs font-normal text-gray-500">{siteConfig.siteDescription}</span>
                 </div>
               </Link>
             </div>
