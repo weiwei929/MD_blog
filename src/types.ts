@@ -1,4 +1,4 @@
-export type CategoryId = 'all' | 'tech' | 'life' | 'tutorial' | 'thoughts';
+export type CategoryId = 'all' | 'tech' | 'life' | 'tutorial' | 'thoughts' | 'weekly';
 
 export type Category = {
   id: CategoryId;

@@ -16,7 +16,7 @@ interface Frontmatter {
 
 export const loadArticles = (): Article[] => {
   // 使用 Vite 的 import.meta.glob 同步加载所有 .md 文件内容
-  const modules = import.meta.glob('../posts/*.md', { eager: true, as: 'raw' });
+  const modules = import.meta.glob('../posts/**/*.md', { eager: true, as: 'raw' });
   
   const articles: Article[] = Object.keys(modules).map((path, index) => {
     const rawContent = modules[path];
@@ -24,9 +24,9 @@ export const loadArticles = (): Article[] => {
     const { attributes, body } = fm<Frontmatter>(rawContent);
     const frontmatter = attributes;
     
-    // 从文件名获取 slug
-    const fileName = path.split('/').pop() || '';
-    const slug = fileName.replace('.md', '');
+    // 从路径获取 slug（支持子目录，如 weekly/W11_xxx -> weekly-W11_xxx）
+    const relativePath = path.replace(/^.*\/posts\//, '').replace(/\.md$/, '');
+    const slug = relativePath.replace(/\//g, '-');
 
     return {
       id: index + 1000, // 避免与硬编码 ID 冲突

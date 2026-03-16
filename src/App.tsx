@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { BookOpen, Zap, FileText, Palette, Menu, X, ArrowRight, Github, Twitter, Mail } from 'lucide-react';
 import ContactModal from './components/ContactModal';
 import PreviewPage from './components/PreviewPage';
+import WeeklyPage from './components/WeeklyPage';
 
 // 英雄区域组件
 const HeroSection = () => {
@@ -103,7 +104,7 @@ const Footer = ({ simple = false }: { simple?: boolean }) => {
     <footer className="bg-white border-t border-gray-200 text-gray-600 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {!simple && (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center mb-6">
               <div className="bg-gray-900 w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl mr-3">
@@ -118,42 +119,16 @@ const Footer = ({ simple = false }: { simple?: boolean }) => {
               专注于前沿技术探索与创新，推动数字世界的无限可能。
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-gray-900 transition-colors">
+              <a href={siteConfig.social.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors" aria-label="GitHub">
                 <Github size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-gray-900 transition-colors">
+              <a href={siteConfig.social.x} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors" aria-label="X">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-gray-900 transition-colors">
+              <a href={siteConfig.social.email} className="text-gray-400 hover:text-gray-900 transition-colors" aria-label="Email">
                 <Mail size={20} />
               </a>
             </div>
-          </div>
-          
-          <div>
-            <h3 className="text-gray-900 font-semibold mb-4">产品服务</h3>
-            <ul className="space-y-3">
-              {['GLM大模型', 'CodeGeeX', 'WiseModel', 'AI开放平台'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-500 hover:text-gray-900 transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-gray-900 font-semibold mb-4">解决方案</h3>
-            <ul className="space-y-3">
-              {['金融行业', '医疗健康', '教育培训', '智能制造'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-gray-500 hover:text-gray-900 transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
           
           <div>
@@ -170,8 +145,8 @@ const Footer = ({ simple = false }: { simple?: boolean }) => {
         <div className={`${simple ? '' : 'border-t border-gray-100 mt-12 pt-8'} flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm`}>
           <p>© 2025 {siteConfig.author}. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-gray-600">隐私政策</a>
-            <a href="#" className="hover:text-gray-600">服务条款</a>
+            <Link to={siteConfig.footer.privacy} className="hover:text-gray-600">隐私政策</Link>
+            <Link to={siteConfig.footer.terms} className="hover:text-gray-600">服务条款</Link>
           </div>
         </div>
       </div>
@@ -187,6 +162,7 @@ const Header = () => {
   const navItems = [
     { name: '首页', href: '/' },
     { name: '文章', href: '/articles' },
+    { name: '每周复盘', href: '/weekly' },
     { name: '关于', href: '/about' },
   ];
 
@@ -304,6 +280,12 @@ const App = () => {
             <Route path="/articles" element={
               <>
                 <HomePage />
+                <Footer simple />
+              </>
+            } />
+            <Route path="/weekly" element={
+              <>
+                <WeeklyPage />
                 <Footer simple />
               </>
             } />

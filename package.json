@@ -6,8 +6,9 @@
   "homepage": "https://weiwei929.github.io/MD_blog",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "npm run sync:weekly && tsc && vite build",
+    "preview": "vite preview",
+    "sync:weekly": "node scripts/sync-weekly.js"
   },
   "dependencies": {
     "framer-motion": "^10.16.4",

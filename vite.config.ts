@@ -6,4 +6,16 @@ export default defineConfig({
   // 部署到 GitHub Pages 默认域名 (weiwei929.github.io/MD_blog/) 时需要配置此路径
   // 如果将来绑定了自定义域名 (如 blog.weiwei.com)，请将此处改为 '/'
   base: '/MD_blog/',
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+          'markdown': ['react-markdown', 'remark-gfm', 'rehype-highlight', 'rehype-raw'],
+          'motion': ['framer-motion'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 600,
+  },
 })

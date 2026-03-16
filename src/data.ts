@@ -17,4 +17,5 @@ export const categories: Category[] = [
   { id: 'tutorial', name: '教程指南', color: 'bg-neutral-600' },
   { id: 'life', name: '生活随笔', color: 'bg-slate-600' },
   { id: 'thoughts', name: '思考感悟', color: 'bg-gray-600' },
+  { id: 'weekly', name: '每周复盘', color: 'bg-indigo-600' },
 ];

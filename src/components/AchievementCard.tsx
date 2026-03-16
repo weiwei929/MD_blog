@@ -7,16 +7,17 @@ import { categories } from '../data';
 type Props = {
   article: Article;
   onClick: () => void;
-  onDelete: (article: Article) => void;
+  onDelete?: (article: Article) => void;
+  showDelete?: boolean;
 };
 
-const AchievementCard = memo(({ article, onClick, onDelete }: Props) => {
+const AchievementCard = memo(({ article, onClick, onDelete, showDelete = true }: Props) => {
   const category = categories.find(cat => cat.id === article.category);
   const [imageError, setImageError] = useState(false);
 
   const handleDeleteClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    onDelete(article);
+    onDelete?.(article);
   };
 
   return (
@@ -76,13 +77,15 @@ const AchievementCard = memo(({ article, onClick, onDelete }: Props) => {
             </div>
             
             <div className="flex items-center gap-3">
-              <button 
-                onClick={handleDeleteClick}
-                className="text-gray-400 hover:text-red-500 transition-colors p-1 rounded-md hover:bg-red-50"
-                title="删除文章"
-              >
-                <Trash2 size={18} />
-              </button>
+              {showDelete && (
+                <button 
+                  onClick={handleDeleteClick}
+                  className="text-gray-400 hover:text-red-500 transition-colors p-1 rounded-md hover:bg-red-50"
+                  title="删除文章"
+                >
+                  <Trash2 size={18} />
+                </button>
+              )}
               <button className="text-gray-900 font-medium hover:text-blue-600 flex items-center gap-1 transition-colors">
                 阅读全文 →
               </button>

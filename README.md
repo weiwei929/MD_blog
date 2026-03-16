@@ -136,6 +136,16 @@ A modern, elegant, and feature-rich static blog built with React, TypeScript, an
 
 3.  在下方编写正文内容。保存后，文章将自动出现在博客中！
 
+### 📅 每周复盘
+
+博客支持从 `D:\workspace\.devlog\weekly` 同步每周复盘到「每周复盘」栏目：
+
+```bash
+npm run sync:weekly
+```
+
+构建时会自动执行同步。若源目录不存在（如 CI 环境），将跳过同步，已提交的周报仍会正常展示。
+
 ## 🛠️ 技术栈 (Tech Stack)
 
 - **Framework**: [React](https://reactjs.org/)
