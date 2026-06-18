@@ -3,7 +3,7 @@ export const siteConfig = {
   siteName: 'Pennfly 创新实验室',
   siteDescription: 'Flying X studio',
   social: {
-    email: 'mailto:pennfly2008@gmail.com',
+    email: 'pennfly2008@gmail.com',
     x: 'https://x.com/pennfly',
     github: 'https://github.com/weiwei929',
     discord: 'https://discord.gg/pennfly',
