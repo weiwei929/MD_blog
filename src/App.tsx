@@ -125,7 +125,7 @@ const Footer = ({ simple = false }: { simple?: boolean }) => {
               <a href={siteConfig.social.x} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-900 transition-colors" aria-label="X">
                 <Twitter size={20} />
               </a>
-              <a href={siteConfig.social.email} className="text-gray-400 hover:text-gray-900 transition-colors" aria-label="Email">
+              <a href={`mailto:${siteConfig.social.email}`} className="text-gray-400 hover:text-gray-900 transition-colors" aria-label="Email">
                 <Mail size={20} />
               </a>
             </div>

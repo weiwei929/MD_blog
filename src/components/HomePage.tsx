@@ -14,6 +14,7 @@ const HomePage = () => {
   const [filteredArticles, setFilteredArticles] = useState<Article[]>(articles);
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const [deletedArticleIds, setDeletedArticleIds] = useState<Set<number>>(new Set());
   
   // 删除确认模态框状态
   const [deleteModal, setDeleteModal] = useState<{
@@ -31,7 +32,7 @@ const HomePage = () => {
   }, [searchTerm]);
 
   useEffect(() => {
-    let result = articles;
+    let result = articles.filter((article) => !deletedArticleIds.has(article.id));
     
     // Set default title
     document.title = siteConfig.siteName;
@@ -51,7 +52,7 @@ const HomePage = () => {
     }
     
     setFilteredArticles(result);
-  }, [selectedCategory, debouncedSearchTerm]);
+  }, [selectedCategory, debouncedSearchTerm, deletedArticleIds]);
 
   const handleCategoryChange = (category: CategoryId) => {
     setSelectedCategory(category);
@@ -92,12 +93,12 @@ const HomePage = () => {
       try {
         await dirHandle.removeEntry(filename);
         
-        // 删除成功，更新列表
-        setFilteredArticles(prev => prev.filter(a => a.id !== articleToDelete.id));
-        // 注意：这里只是更新了当前视图的列表，实际上还需要一种机制来更新全局 articles 数据，
-        // 但由于 articles 是从 data.ts 导入的静态/动态混合数据，我们至少先在 UI 上移除它。
-        // 如果是纯静态站点，刷新后可能会回来（除非后端文件真删了且构建系统重新扫描）。
-        // 在这个本地开发模式下，文件被删除了，Vite HMR 可能会触发重载，或者下次加载时 markdownLoader 找不到文件。
+        // 删除成功，更新列表并记录为已删除，避免筛选/搜索后再次出现
+        setDeletedArticleIds((prev) => {
+          const next = new Set(prev);
+          next.add(articleToDelete.id);
+          return next;
+        });
         
         alert(`文章 "${articleToDelete.title}" 已成功删除！`);
       } catch (err: any) {
@@ -175,7 +176,7 @@ const HomePage = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 20 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    transition={{ duration: 0.3, delay: Math.min(index * 0.05, 0.3) }}
                     layout
                   >
                     <AchievementCard 

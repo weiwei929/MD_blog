@@ -18,6 +18,7 @@ const ArticleDetail = () => {
   const [imageError, setImageError] = useState(false);
   
   useEffect(() => {
+    setImageError(false);
     window.scrollTo(0, 0);
     if (article) {
       document.title = `${article.title} - ${siteConfig.siteName}`;

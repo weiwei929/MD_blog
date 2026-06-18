@@ -14,7 +14,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
       icon: <Mail size={24} />,
       link: `mailto:${siteConfig.social.email}`,
       color: 'hover:text-red-500',
-      label: siteConfig.social.email
+      label: siteConfig.social.email,
     },
     {
       name: 'X (Twitter)',
