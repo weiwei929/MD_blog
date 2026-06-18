@@ -20,12 +20,28 @@ const AchievementCard = memo(({ article, onClick, onDelete, showDelete = true }:
     onDelete?.(article);
   };
 
+  const handleReadMoreClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onClick();
+  };
+
+  const handleCardKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <motion.div
       whileHover={{ y: -5 }}
       transition={{ duration: 0.2 }}
       className="h-full"
       onClick={onClick}
+      onKeyDown={handleCardKeyDown}
+      role="button"
+      tabIndex={0}
+      aria-label={`阅读文章：${article.title}`}
     >
       <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg h-full flex flex-col cursor-pointer group">
         <div className="relative">
@@ -79,6 +95,7 @@ const AchievementCard = memo(({ article, onClick, onDelete, showDelete = true }:
             <div className="flex items-center gap-3">
               {showDelete && (
                 <button 
+                  type="button"
                   onClick={handleDeleteClick}
                   className="text-gray-400 hover:text-red-500 transition-colors p-1 rounded-md hover:bg-red-50"
                   title="删除文章"
@@ -86,7 +103,7 @@ const AchievementCard = memo(({ article, onClick, onDelete, showDelete = true }:
                   <Trash2 size={18} />
                 </button>
               )}
-              <button className="text-gray-900 font-medium hover:text-blue-600 flex items-center gap-1 transition-colors">
+              <button type="button" onClick={handleReadMoreClick} className="text-gray-900 font-medium hover:text-blue-600 flex items-center gap-1 transition-colors">
                 阅读全文 →
               </button>
             </div>

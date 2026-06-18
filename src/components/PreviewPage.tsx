@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -31,6 +31,7 @@ const PreviewPage = () => {
   const [imageError, setImageError] = useState(false);
 
   const [showTipsModal, setShowTipsModal] = useState(false);
+  const publishTimeoutRef = useRef<number | null>(null);
 
   const handleFileSelect = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -74,6 +75,14 @@ const PreviewPage = () => {
 
   const [isPublishing, setIsPublishing] = useState(false);
 
+  useEffect(() => {
+    return () => {
+      if (publishTimeoutRef.current !== null) {
+        window.clearTimeout(publishTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const handlePublish = async () => {
     console.log('Step 1: Publish button clicked');
     if (!rawFileContent) {
@@ -94,7 +103,6 @@ const PreviewPage = () => {
 
       if (!window.showSaveFilePicker) {
         setError('您的浏览器不支持直接保存文件 (File System Access API)');
-        setIsPublishing(false);
         return;
       }
 
@@ -119,16 +127,20 @@ const PreviewPage = () => {
       
       console.log('Step 8: Save complete. Navigating...');
       // Give user a moment to see the success state
-      setTimeout(() => {
+      publishTimeoutRef.current = window.setTimeout(() => {
+        setIsPublishing(false);
         navigate('/');
       }, 1000);
     } catch (err: any) {
       console.error('Publish Error:', err);
-      setIsPublishing(false);
       if (err.name !== 'AbortError') {
         setError(`发布失败：${err.message || '未知错误'}`);
       } else {
         console.log('User cancelled save');
+      }
+    } finally {
+      if (publishTimeoutRef.current === null) {
+        setIsPublishing(false);
       }
     }
   };
