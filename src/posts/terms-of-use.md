@@ -1,3 +1,13 @@
+---
+title: 使用条款
+date: 2025-01-01
+category: page
+hidden: true
+tags: []
+description: Flying X Studio 使用条款
+author: Flying X Studio
+---
+
 # 使用条款
 
 欢迎访问Flying X Studio的官方网站。在使用我们的网站前，请仔细阅读以下使用条款。通过访问或使用本网站，您同意遵守以下条款。如果不同意，请立即停止使用本网站。

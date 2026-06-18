@@ -12,6 +12,7 @@ interface Frontmatter {
   featured?: boolean;
   author?: string;
   readTime?: string;
+  hidden?: boolean;
 }
 
 export const loadArticles = (): Article[] => {
@@ -27,6 +28,8 @@ export const loadArticles = (): Article[] => {
       // 从路径获取 slug（兼容 / 和 \）
       const relativePath = modulePath.replace(/^.*[\/\\]posts[\/\\]/, '').replace(/\.md$/, '');
       const slug = relativePath.replace(/[/\\]/g, '-');
+
+      if (frontmatter.hidden) continue;
 
       articles.push({
         id: articles.length + 1000,
