@@ -4,7 +4,7 @@ date: 2026-06-18
 category: thoughts
 tags: [AI协作, 开发教训, 项目管理, 工程治理, 复盘]
 description: 下午被 Open Design 的设计能力吸引，贸然启动 UI 改造。Slice-1 正常，Slice-2 撞上保存链路——连锁反应从"装修"演变成"拆承重墙"，以一年未见的 TypeScript 红字收场。开发者、Codex、Cursor、Claude 四方联合复盘。
-coverImage: https://images.unsplash.com/photo-1534239697792-ecf929e1b60e?w=1200&h=630&fit=crop
+coverImage: https://picsum.photos/seed/cracked-wall/1200/630
 featured: true
 author: weiwei
 ---
